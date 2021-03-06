@@ -4,22 +4,14 @@ import {
   StyleSheet,
   View,
   Text,
-  StatusBar,
 } from 'react-native';
+import TitleScreen from '../components/TitleScreen';
 
-const styles = StyleSheet.create({
-  
-})
-
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ route, navigation }) => {
   return (
     <>
       <SafeAreaView>
-        <View>
-          <Text>
-            Home
-          </Text>
-        </View>
+        <TitleScreen title={route.name}/>
       </SafeAreaView>
     </>
   );

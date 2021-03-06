@@ -6,20 +6,15 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import TitleScreen from '../components/TitleScreen';
 
-const styles = StyleSheet.create({
-  
-})
 
-const LeaguesScreen = ({ navigation }) => {
+
+const LeaguesScreen = ({ route, navigation }) => {
   return (
     <>
       <SafeAreaView>
-        <View>
-          <Text>
-            Leagues
-          </Text>
-        </View>
+        <TitleScreen title={route.name} />
       </SafeAreaView>
     </>
   );

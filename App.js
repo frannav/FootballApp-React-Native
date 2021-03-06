@@ -9,6 +9,7 @@ import {
 
 
 import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import HomeScreen from './src/views/HomeScreen.js'
@@ -16,6 +17,7 @@ import LeaguesScreen from './src/views/LeaguesScreen.js'
 import TeamsScreen from './src/views/TeamsScreen.js'
 import PlayersScreen from './src/views/PlayersScreen.js'
 
+const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const App = () => {
@@ -28,10 +30,10 @@ const App = () => {
             inactiveTintColor: 'gray'
           }}
         >
-          <Tab.Screen name='Home' component={HomeScreen}/>
-          <Tab.Screen name='Leagues' component={LeaguesScreen}/>
-          <Tab.Screen name='Teams' component={TeamsScreen}/>
-          <Tab.Screen name='Players' component={PlayersScreen}/>
+          <Tab.Screen name='Inicio' component={HomeScreen} />
+          <Tab.Screen name='Ligas' component={LeaguesScreen} />
+          <Tab.Screen name='Equipos' component={TeamsScreen} />
+          <Tab.Screen name='Jugadores' component={PlayersScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     </>

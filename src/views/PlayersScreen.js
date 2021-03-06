@@ -7,19 +7,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-const styles = StyleSheet.create({
-  
-})
+import TitleScreen from '../components/TitleScreen';
 
-const PlayersScreen = ({ navigation }) => {
+const PlayersScreen = ({ route, navigation }) => {
   return (
     <>
       <SafeAreaView>
-        <View>
-          <Text>
-            Players
-          </Text>
-        </View>
+        <TitleScreen title={route.name} />
       </SafeAreaView>
     </>
   );
