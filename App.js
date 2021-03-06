@@ -1,10 +1,6 @@
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  View,
-  Text,
-  StatusBar,
 } from 'react-native';
 
 
@@ -27,7 +23,10 @@ const App = () => {
         <Tab.Navigator
           tabBarOptions={{
             activeTintColor: 'black',
-            inactiveTintColor: 'gray'
+            inactiveTintColor: 'gray',
+            labelStyle: {
+              fontSize: 14
+            }
           }}
         >
           <Tab.Screen name='Inicio' component={HomeScreen} />
