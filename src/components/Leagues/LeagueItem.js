@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
 })
 
 const LeagueItem = ({ name, img }) => {
-
   return (
     <>
     <View style={styles.container}>
