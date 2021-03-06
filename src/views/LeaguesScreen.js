@@ -5,8 +5,9 @@ import {
   View, 
   Text,
 } from 'react-native';
-import LeagueItem from '../components/Leagues/LeagueItem';
+
 import TitleScreen from '../components/TitleScreen';
+import LeagueItem from '../components/LeagueItem';
 
 const LeaguesScreen = ({ route, navigation }) => {
 
