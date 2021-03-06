@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
   View,
-  Text,
   FlatList,
 } from 'react-native';
 
@@ -32,9 +30,6 @@ const TeamsScreen = ({ route, navigation }) => {
             data={teams}
             renderItem={({item}) => <TeamItem name={item} img={item}/>}
             keyExtractor={item => item["id"]}
-            ListHeaderComponent={
-              <View><Text>Todas las ligas</Text></View>
-            }
           />
         </View>
       </SafeAreaView>

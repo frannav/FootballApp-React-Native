@@ -5,7 +5,6 @@ import {
 
 
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import HomeScreen from './src/views/HomeScreen.js'
@@ -13,7 +12,6 @@ import LeaguesScreen from './src/views/LeaguesScreen.js'
 import TeamsScreen from './src/views/TeamsScreen.js'
 import PlayersScreen from './src/views/PlayersScreen.js'
 
-const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const App = () => {
@@ -39,8 +37,5 @@ const App = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  
-})
 
 export default App;

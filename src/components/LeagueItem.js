@@ -1,9 +1,10 @@
 import React from 'react';
 import {
+  Button,
   Text,
   Image,
   View,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -28,22 +29,25 @@ const styles = StyleSheet.create({
 
 })
 
-const LeagueItem = ({ name, img }) => {
+const LeagueItem = ({ navigation, name, img }) => {
   return (
     <>
-    <View style={styles.container}>
-      <View>
-        <Image
-          source={{ uri:  `${img["Logo de la Liga"]}`}}
-          style={{ width: 70, height: 70 }}
-        />
+      <View style={styles.container}>
+        <View>
+          <Image
+            source={{ uri:  `${img["Logo de la Liga"]}`}}
+            style={{ width: 70, height: 70 }}
+          />
+        </View>
+        <View style={styles.textWrapper}>
+          <Button title='Más detalles' onPress={() => navigation.navigate('Inicio')}/>
+        </View>
+        <View style={styles.textWrapper}>
+          <Text>
+            {name["Nombre De La Liga"]}
+          </Text>
+        </View>
       </View>
-      <View style={styles.textWrapper}>
-        <Text>
-          {name["Nombre De La Liga"]}
-        </Text>
-      </View>
-    </View>
     </>
   );
 };

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
   View,
-  Text,
   FlatList,
 } from 'react-native';
 
@@ -32,9 +30,6 @@ const PlayersScreen = ({ route, navigation }) => {
             data={players}
             renderItem={({item}) => <PlayerItem name={item} img={item}/>}
             keyExtractor={item => item["id"]}
-            ListHeaderComponent={
-              <View><Text>Todas los jugadores</Text></View>
-            }
           />
         </View>
       </SafeAreaView>
