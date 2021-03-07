@@ -16,6 +16,7 @@ import PlayersScreen from './src/views/PlayersScreen.js'
 const Tab = createBottomTabNavigator()
 
 const MyLeagueStack = createStackNavigator()
+const MyTeamStack = createStackNavigator()
 
 function LeaguesStackScreens() {
   return (
@@ -25,6 +26,16 @@ function LeaguesStackScreens() {
         component={LeagueStack}
       />
     </MyLeagueStack.Navigator>
+  )
+}
+function TeamsStackScreens() {
+  return (
+    <MyTeamStack.Navigator>
+      <MyTeamStack.Screen
+        name='TeamsList'
+        component={TeamsScreen}
+      />
+    </MyTeamStack.Navigator>
   )
 }
 
@@ -44,7 +55,7 @@ const App = () => {
           <Tab.Screen name='Inicio' component={HomeScreen} />
           {/* <Tab.Screen name='Ligas' component={LeaguesScreen} /> */}
           <Tab.Screen name='LeagueStack' component={LeaguesStackScreens} />
-          <Tab.Screen name='Equipos' component={TeamsScreen} />
+          <Tab.Screen name='Equipos' component={TeamsStackScreens} />
           <Tab.Screen name='Jugadores' component={PlayersScreen} />
         </Tab.Navigator>
       </NavigationContainer>
