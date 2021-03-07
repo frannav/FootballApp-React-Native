@@ -12,6 +12,8 @@ import TeamItem from '../components/TeamItem';
 const TeamsScreen = ({ route, navigation }) => {
 
   const [teams, setTeams] = useState(null)
+  const [refreshing, setRefreshing] = useState(false);
+
 
   useEffect(function() {
     async function fetchData() {
@@ -22,9 +24,19 @@ const TeamsScreen = ({ route, navigation }) => {
     fetchData()
   },[])
 
+  async function refreshData() {
+    const response = await fetch('http://localhost:3000/teams')
+    const json = await response.json()
+    setTeams(json)
+  }
+
   return (
     <>
       <SafeAreaView>
+        <Button
+          title='Actualizar'
+          onPress={() => refreshData()}
+        />
         <TitleScreen title={route.name} />
         <Button
           title='Añadir Equipo'
