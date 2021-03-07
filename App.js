@@ -10,8 +10,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from './src/views/HomeScreen.js'
 // import LeaguesScreen from './src/views/LeaguesScreen.js'
 import LeagueStack from './src/components/Leagues/LeagueStack.js'
-import TeamsScreen from './src/views/TeamsScreen.js'
+// import TeamsScreen from './src/views/TeamsScreen.js'
 import PlayersScreen from './src/views/PlayersScreen.js'
+import TeamStack from './src/components/Teams/TeamStack.js';
 
 const Tab = createBottomTabNavigator()
 
@@ -33,7 +34,7 @@ function TeamsStackScreens() {
     <MyTeamStack.Navigator>
       <MyTeamStack.Screen
         name='TeamsList'
-        component={TeamsScreen}
+        component={TeamStack}
       />
     </MyTeamStack.Navigator>
   )
