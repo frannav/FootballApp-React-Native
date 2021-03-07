@@ -8,14 +8,14 @@ import {
 } from 'react-native';
 
 
-const DEFAULT_AVATAR = 'https://robohash.org/inutminus.png?size=250x250&set=set1'
-const DEFAULT_TEAMID = ''
+const DEFAULT_LOGO = 'https://robohash.org/inutminus.png?size=250x250&set=set1'
+const DEFAULT_LIGAID = ''
 
-const AddPlayer = () => {
+const AddTeam = () => {
 
   const [ name, onChangeText ] = useState(null)
-  const [ teamId, onChangeTeam ] = useState(DEFAULT_TEAMID)
-  const [ avatar, onChangeAvatar ] = useState(DEFAULT_AVATAR)
+  const [ leagueId, onChangeLeague ] = useState(DEFAULT_LIGAID)
+  const [ logo, onChangeLogo ] = useState(DEFAULT_LOGO)
   const [ isOk, setIsOk ] = useState(null)
   const [ error, setError ] = useState(null)
 
@@ -23,23 +23,21 @@ const AddPlayer = () => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 
-      "Nombre del Jugador": `${name}`,
-      "teamId": `${teamId}`,
-      "Avatar": `${avatar}`
+      "Nombre del equipo": `${name}`,
+      "leagueId": `${leagueId}`,
+      "Logo del Equipo": `${logo}`
     })
   }
 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/players', dataToSend)
+    fetch('http://localhost:3000/teams', dataToSend)
       .then(res => res.json())
       .then(
         (result) => {
-          setIsLoaded(true)
         },
         (error) => {
-          setIsLoaded(true)
           setError(error)
         }
       )
@@ -64,12 +62,12 @@ const AddPlayer = () => {
             clearButtonMode='always'
           />
           <Text>
-            teamId:
+          leagueId:
           </Text>
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            onChangeText={text => onChangeTeam(text) & setIsOk(false)}
-            name={teamId}
+            onChangeText={text => onChangeLeague(text) & setIsOk(false)}
+            name={leagueId}
             clearButtonMode='always'
           />
           <Text>
@@ -77,13 +75,13 @@ const AddPlayer = () => {
           </Text>
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            onChangeText={text => onChangeAvatar(text) & setIsOk(false)}
-            name={avatar}
+            onChangeText={text => onChangeLogo(text) & setIsOk(false)}
+            name={logo}
             clearButtonMode='always'
           />
         </View>
         <Button
-          title='Pulsa para añadir el nuevo jugador'
+          title='Pulsa para añadir el nuevo equipo'
           onPress={handleSubmit}
         />
         { isOk ? <Text>Enviado</Text> : null }
@@ -95,4 +93,4 @@ const AddPlayer = () => {
 
 
 
-export default AddPlayer;
+export default AddTeam;
