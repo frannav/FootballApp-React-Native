@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 
 
-const DEFAULT_AVATAR = 'https://robohash.org/inutminus.png?size=250x250&set=set1'
-const DEFAULT_TEAMID = ''
+const DEFAULT_AVATAR = null
+const DEFAULT_TEAMID = null
 
-const AddPlayer = () => {
+const EditPlayer = ({ route }) => {
 
   const [ name, onChangeText ] = useState(null)
   const [ teamId, onChangeTeam ] = useState(DEFAULT_TEAMID)
@@ -20,7 +20,7 @@ const AddPlayer = () => {
   const [ error, setError ] = useState(null)
 
   let dataToSend = {
-    method: 'POST',
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 
       "Nombre del Jugador": `${name}`,
@@ -32,7 +32,7 @@ const AddPlayer = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/players', dataToSend)
+    fetch(`http://localhost:3000/players/${route.params["id"]}`, dataToSend)
       .then(res => res.json())
       .then(
         (result) => {
@@ -81,7 +81,7 @@ const AddPlayer = () => {
           />
         </View>
         <Button
-          title='Pulsa para añadir el nuevo jugador'
+          title='Pulsa para editar'
           onPress={handleSubmit}
         />
         { isOk ? <Text>Enviado</Text> : null }
@@ -93,4 +93,4 @@ const AddPlayer = () => {
 
 
 
-export default AddPlayer;
+export default EditPlayer;

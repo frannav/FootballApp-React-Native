@@ -4,7 +4,7 @@ import {
   Text,
   Image,
   FlatList,
-  Pressable
+  Button,
 } from 'react-native';
 
 const PlayerDetail = ({ route, navigation }) => {
@@ -50,6 +50,10 @@ const PlayerDetail = ({ route, navigation }) => {
             </Text>
           </View>
         }
+      />
+      <Button
+        title='Editar jugador'
+        onPress={() => navigation.navigate('EditarJugador', route.params)}
       />
     </>
   );
