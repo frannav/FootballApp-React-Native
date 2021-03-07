@@ -5,9 +5,7 @@ import {
   Text,
   Image,
   FlatList,
-  Button,
-  RefreshControl,
-  ScrollView
+  Button
 } from 'react-native';
 
 
