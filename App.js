@@ -6,13 +6,27 @@ import {
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-
+import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from './src/views/HomeScreen.js'
-import LeaguesScreen from './src/views/LeaguesScreen.js'
+// import LeaguesScreen from './src/views/LeaguesScreen.js'
+import LeagueStack from './src/components/Leagues/LeagueStack.js'
 import TeamsScreen from './src/views/TeamsScreen.js'
 import PlayersScreen from './src/views/PlayersScreen.js'
 
 const Tab = createBottomTabNavigator()
+
+const MyLeagueStack = createStackNavigator()
+
+function LeaguesStackScreens() {
+  return (
+    <MyLeagueStack.Navigator>
+      <MyLeagueStack.Screen
+        name='LeaguesList'
+        component={LeagueStack}
+      />
+    </MyLeagueStack.Navigator>
+  )
+}
 
 const App = () => {
   return (
@@ -28,7 +42,8 @@ const App = () => {
           }}
         >
           <Tab.Screen name='Inicio' component={HomeScreen} />
-          <Tab.Screen name='Ligas' component={LeaguesScreen} />
+          {/* <Tab.Screen name='Ligas' component={LeaguesScreen} /> */}
+          <Tab.Screen name='LeagueStack' component={LeaguesStackScreens} />
           <Tab.Screen name='Equipos' component={TeamsScreen} />
           <Tab.Screen name='Jugadores' component={PlayersScreen} />
         </Tab.Navigator>

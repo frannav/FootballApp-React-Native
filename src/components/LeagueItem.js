@@ -5,6 +5,7 @@ import {
   Image,
   View,
   StyleSheet,
+  Pressable
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -29,25 +30,27 @@ const styles = StyleSheet.create({
 
 })
 
-const LeagueItem = ({ navigation, name, img }) => {
+const LeagueItem = ({ onPress, navigation, name, img }) => {
   return (
     <>
-      <View style={styles.container}>
-        <View>
-          <Image
-            source={{ uri:  `${img["Logo de la Liga"]}`}}
-            style={{ width: 70, height: 70 }}
-          />
+      <Pressable onPress={onPress}>
+        <View style={styles.container}>
+          <View>
+            <Image
+              source={{ uri:  `${img["Logo de la Liga"]}`}}
+              style={{ width: 70, height: 70 }}
+            />
+          </View>
+          <View style={styles.textWrapper}>
+            {/* <Button title='Más detalles' onPress={() => navigation.navigate('Inicio')}/> */}
+          </View>
+          <View style={styles.textWrapper}>
+            <Text>
+              {name["Nombre De La Liga"]}
+            </Text>
+          </View>
         </View>
-        <View style={styles.textWrapper}>
-          <Button title='Más detalles' onPress={() => navigation.navigate('Inicio')}/>
-        </View>
-        <View style={styles.textWrapper}>
-          <Text>
-            {name["Nombre De La Liga"]}
-          </Text>
-        </View>
-      </View>
+      </Pressable>
     </>
   );
 };

@@ -28,7 +28,14 @@ const LeaguesScreen = ({ route, navigation }) => {
           <View>
             <FlatList
               data={leagues}
-              renderItem={({item}) => <LeagueItem navigation={navigation} name={item} img={item}/>}
+              renderItem={({item}) =>
+                <LeagueItem
+                  navigation={navigation}
+                  name={item}
+                  img={item}
+                  onPress={() => navigation.navigate('LigaDetalle', item )}
+                />
+              }
               keyExtractor={item => item["Identificador"]}
             />
           </View>
