@@ -28,7 +28,13 @@ const TeamsScreen = ({ route, navigation }) => {
         <View>
           <FlatList
             data={teams}
-            renderItem={({item}) => <TeamItem name={item} img={item}/>}
+            renderItem={({item}) =>
+              <TeamItem
+              name={item}
+              img={item}
+              onPress={() => navigation.navigate('EquipoDetalle', item )}
+            />
+            }
             keyExtractor={item => item["id"]}
           />
         </View>

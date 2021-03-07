@@ -3,7 +3,8 @@ import {
   Text,
   Image,
   View,
-  StyleSheet
+  StyleSheet,
+  Pressable
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -28,22 +29,24 @@ const styles = StyleSheet.create({
 
 })
 
-const TeamItem = ({ name, img }) => {
+const TeamItem = ({ onPress, name, img }) => {
   return (
     <>
-    <View style={styles.container}>
-      <View>
-        <Image
-          source={{ uri:  `${img["Logo del Equipo"]}`}}
-          style={{ width: 70, height: 70 }}
-        />
-      </View>
-      <View style={styles.textWrapper}>
-        <Text>
-          {name["Nombre del equipo"]}
-        </Text>
-      </View>
-    </View>
+      <Pressable onPress={onPress}>
+        <View style={styles.container}>
+          <View>
+            <Image
+              source={{ uri:  `${img["Logo del Equipo"]}`}}
+              style={{ width: 70, height: 70 }}
+            />
+          </View>
+          <View style={styles.textWrapper}>
+            <Text>
+              {name["Nombre del equipo"]}
+            </Text>
+          </View>
+        </View>
+    </Pressable>
     </>
   );
 };

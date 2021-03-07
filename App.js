@@ -33,7 +33,7 @@ function TeamsStackScreens() {
   return (
     <MyTeamStack.Navigator>
       <MyTeamStack.Screen
-        name='TeamsList'
+        name='TeamsStack'
         component={TeamStack}
       />
     </MyTeamStack.Navigator>

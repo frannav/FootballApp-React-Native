@@ -4,7 +4,7 @@ import {
   
 } from 'react-native';
 import TeamsScreen from '../../views/TeamsScreen.js'
-import LeagueDetail from '../../views/LeagueDetail.js';
+import TeamDetail from '../../views/TeamDetail.js';
 const Stack = createStackNavigator();
 
 const TeamStack = ({ route, navigation }) => {
@@ -16,10 +16,10 @@ const TeamStack = ({ route, navigation }) => {
           name='Equipos'
           component={TeamsScreen}
         />
-        {/* <Stack.Screen 
-          name='LigaDetalle'
-          component={LeagueDetail}
-        /> */}
+        <Stack.Screen 
+          name='EquipoDetalle'
+          component={TeamDetail}
+        />
       </Stack.Navigator>
     </>
   );
