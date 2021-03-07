@@ -8,6 +8,7 @@ import PlayerDetail from '../../views/PlayerDetail.js';
 import PlayersScreen from '../../views/PlayersScreen.js';
 import AddPlayer from '../Players/AddPlayer.js';
 import EditPlayer from '../Players/EditPlayer.js';
+import SearchPlayers from '../Players/SearchPlayers.js';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,10 @@ const PlayerStack = ({ route, navigation }) => {
         <Stack.Screen 
           name='EditarJugador'
           component={EditPlayer}
+        />
+        <Stack.Screen 
+          name='BuscarJugador'
+          component={SearchPlayers}
         />
       </Stack.Navigator>
     </>

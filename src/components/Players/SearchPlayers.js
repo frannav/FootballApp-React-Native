@@ -4,17 +4,37 @@ import {
   View,
   FlatList,
   Button,
+  TextInput
 } from 'react-native';
 
-import TitleScreen from '../components/TitleScreen';
-import PlayerItem from '../components/PlayerItem';
+import TitleScreen from '../TitleScreen'
+import PlayerItem from '../PlayerItem'
 
-const PlayersScreen = ({ route, navigation }) => {
+const SearchPlayers = ({ route, navigation }) => {
 
+  const [ name, onChangeText ] = useState(null)
   const [players, setPlayers] = useState(null)
   const [refreshing, setRefreshing] = useState(false);
+  const [playersFiltered, setPlayersFiltered] = useState([])
 
+  // console.log('ETO SI SEEECH', route.params["players"])
 
+  // handleSearch = () => {
+    // const playersFiltered = route.params["players"].filter((item) => {
+    //   return item["Nombre del Jugador"].toLowerCase().include(name.toLowerCase())
+    // })
+  
+  //   setPlayersFiltered(playersFiltered)
+  // }
+
+  // const filter = route.params["players"].filter((item) => {
+  //   playersFiltered.push(item["Nombre del Jugador"])
+  // })
+  // console.log(route.params["players"]["Nombre del jugador"])
+  const dataSet = route.params["players"] 
+  const newDataSet = dataSet.map(a => a["Nombre del Jugador"])
+
+  
   useEffect(function() {
     async function fetchData() {
       const response = await fetch('http://localhost:3000/players')
@@ -38,16 +58,13 @@ const PlayersScreen = ({ route, navigation }) => {
           onPress={() => refreshData()}
         />
         <TitleScreen title={route.name} />
-        <Button
-          title='Añadir Jugador'
-          onPress={() => navigation.navigate('AñadirJugador')}
-        />
-        <Button
-          title='Buscar Jugadores'
-          onPress={() => navigation.navigate('BuscarJugador', {players})}
+        <TextInput
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          onChangeText={text => onChangeText(text)}
+          name={name}
         />
         <View>
-          <FlatList
+          {/* <FlatList
             data={players}
             renderItem={({item}) =>
             <PlayerItem
@@ -57,7 +74,7 @@ const PlayersScreen = ({ route, navigation }) => {
             />
             }
             keyExtractor={item => item["id"]}
-          />
+          /> */}
         </View>
       </SafeAreaView>
     </>
@@ -66,4 +83,4 @@ const PlayersScreen = ({ route, navigation }) => {
 
 
 
-export default PlayersScreen;
+export default SearchPlayers;
