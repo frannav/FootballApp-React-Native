@@ -53,7 +53,7 @@ const PlayersScreen = ({ route, navigation }) => {
             <PlayerItem
               name={item}
               img={item}
-              onPress={() => navigation.navigate('JugadorDetalle', item)}
+              onPress={() => navigation.navigate('Detalles del Jugador', item)}
             />
             }
             keyExtractor={item => item["id"]}

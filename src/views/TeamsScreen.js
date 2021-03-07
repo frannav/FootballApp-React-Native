@@ -49,7 +49,7 @@ const TeamsScreen = ({ route, navigation }) => {
               <TeamItem
               name={item}
               img={item}
-              onPress={() => navigation.navigate('EquipoDetalle', item )}
+              onPress={() => navigation.navigate('Detalles del Equipo', item )}
             />
             }
             keyExtractor={item => item["id"]}

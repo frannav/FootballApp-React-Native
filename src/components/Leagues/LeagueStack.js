@@ -17,7 +17,7 @@ const LeagueStack = ({ route, navigation }) => {
           component={LeaguesScreen}
         />
         <Stack.Screen 
-          name='LigaDetalle'
+          name='Detalles de la Liga'
           component={LeagueDetail}
         />
       </Stack.Navigator>

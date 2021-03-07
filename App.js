@@ -23,7 +23,11 @@ const MyPlayerStack = createStackNavigator()
 
 function LeaguesStackScreens() {
   return (
-    <MyLeagueStack.Navigator>
+    <MyLeagueStack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <MyLeagueStack.Screen
         name='LeaguesList'
         component={LeagueStack}
@@ -34,7 +38,11 @@ function LeaguesStackScreens() {
 
 function TeamsStackScreens() {
   return (
-    <MyTeamStack.Navigator>
+    <MyTeamStack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <MyTeamStack.Screen
         name='TeamsStack'
         component={TeamStack}
@@ -45,7 +53,11 @@ function TeamsStackScreens() {
 
 function PlayersStackScreen() {
   return (
-    <MyPlayerStack.Navigator>
+    <MyPlayerStack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <MyPlayerStack.Screen
         name='PlayersStack'
         component={PlayerStack}
@@ -64,11 +76,12 @@ const App = () => {
             inactiveTintColor: 'gray',
             labelStyle: {
               fontSize: 14
-            }
+            },
+            headerShown: false
           }}
         >
           <Tab.Screen name='Inicio' component={HomeScreen} />
-          <Tab.Screen name='LeagueStack' component={LeaguesStackScreens} />
+          <Tab.Screen name='Ligas' component={LeaguesStackScreens} />
           <Tab.Screen name='Equipos' component={TeamsStackScreens} />
           <Tab.Screen name='Jugadores' component={PlayersStackScreen} />
         </Tab.Navigator>

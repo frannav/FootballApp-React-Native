@@ -44,7 +44,7 @@ const LeaguesScreen = ({ route, navigation }) => {
                   navigation={navigation}
                   name={item}
                   img={item}
-                  onPress={() => navigation.navigate('LigaDetalle', item )}
+                  onPress={() => navigation.navigate('Detalles de la Liga', item )}
                 />
               }
               keyExtractor={item => item["Identificador"]}
