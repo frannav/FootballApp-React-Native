@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   FlatList,
-  View, 
+  View,
+  Button
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
@@ -21,9 +22,19 @@ const LeaguesScreen = ({ route, navigation }) => {
     fetchData()
   },[])
 
+  async function refreshData() {
+    const response = await fetch('http://localhost:3000/leagues')
+    const json = await response.json()
+    setLeagues(json)
+  }
+
   return (
     <>
         <SafeAreaView>
+        <Button
+          title='Actualizar'
+          onPress={() => refreshData()}
+        />
           <TitleScreen title={route.name} />
           <View>
             <FlatList
