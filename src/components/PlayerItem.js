@@ -3,7 +3,8 @@ import {
   Text,
   Image,
   View,
-  StyleSheet
+  StyleSheet,
+  Pressable
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -28,22 +29,24 @@ const styles = StyleSheet.create({
 
 })
 
-const PlayerItem = ({ name, img }) => {
+const PlayerItem = ({ onPress, name, img }) => {
   return (
     <>
-    <View style={styles.container}>
-      <View>
-        <Image
-          source={{ uri:  `${img["Avatar"]}`}}
-          style={{ width: 70, height: 70 }}
-        />
-      </View>
-      <View style={styles.textWrapper}>
-        <Text>
-          {name["Nombre del Jugador"]}
-        </Text>
-      </View>
-    </View>
+      <Pressable onPress={onPress}>
+        <View style={styles.container}>
+          <View>
+            <Image
+              source={{ uri:  `${img["Avatar"]}`}}
+              style={{ width: 70, height: 70 }}
+            />
+          </View>
+          <View style={styles.textWrapper}>
+            <Text>
+              {name["Nombre del Jugador"]}
+            </Text>
+          </View>
+        </View>
+      </Pressable>
     </>
   );
 };

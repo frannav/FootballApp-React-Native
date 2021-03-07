@@ -28,7 +28,13 @@ const PlayersScreen = ({ route, navigation }) => {
         <View>
           <FlatList
             data={players}
-            renderItem={({item}) => <PlayerItem name={item} img={item}/>}
+            renderItem={({item}) =>
+            <PlayerItem
+              name={item}
+              img={item}
+              onPress={() => navigation.navigate('JugadorDetalle', item)}
+            />
+            }
             keyExtractor={item => item["id"]}
           />
         </View>
