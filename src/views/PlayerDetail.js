@@ -11,6 +11,8 @@ const PlayerDetail = ({ route, navigation }) => {
 
   
   const [team, setTeam] = useState(null)
+  const [isOk, setIsOk] = useState(false)
+  const [ error, setError ] = useState(null)
   
   useEffect(function() {
     async function fetchData() {
@@ -20,6 +22,18 @@ const PlayerDetail = ({ route, navigation }) => {
     }
     fetchData()
   },[])
+
+  let dataToSend = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  }
+
+
+  function handleDelete() {
+    fetch(`http://localhost:3000/players/${route.params["id"]}`, dataToSend)
+    setIsOk(true)
+  }
+
   return (
     <>
       <View>
@@ -55,6 +69,12 @@ const PlayerDetail = ({ route, navigation }) => {
         title='Editar jugador'
         onPress={() => navigation.navigate('EditarJugador', route.params)}
       />
+      <Button
+        title='Borrar Jugador'
+        onPress={() => handleDelete()}
+      />
+      {isOk ? <Text>Jugador Borrado</Text> : null}
+      {error ? <Text>Error: {error.message}</Text> : null}
     </>
   );
 };
