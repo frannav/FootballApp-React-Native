@@ -3,7 +3,8 @@ import {
   View,
   Text,
   Image,
-  FlatList
+  FlatList,
+  Button
 } from 'react-native';
 
 const TeamDetail = ({ route, navigation }) => {
@@ -51,6 +52,10 @@ const TeamDetail = ({ route, navigation }) => {
             </Text>
           </View>
         }
+      />
+      <Button
+        title='Editar jugador'
+        onPress={() => navigation.navigate('EditarEquipo', route.params)}
       />
     </>
   );

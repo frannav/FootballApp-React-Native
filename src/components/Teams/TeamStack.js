@@ -6,6 +6,7 @@ import {
 import TeamsScreen from '../../views/TeamsScreen.js'
 import TeamDetail from '../../views/TeamDetail.js';
 import AddTeam from '../Teams/AddTeam.js';
+import EditTeam from '../Teams/EditTeam.js';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,10 @@ const TeamStack = ({ route, navigation }) => {
         <Stack.Screen 
           name='AñadirEquipo'
           component={AddTeam}
+        />
+        <Stack.Screen 
+          name='EditarEquipo'
+          component={EditTeam}
         />
       </Stack.Navigator>
     </>
