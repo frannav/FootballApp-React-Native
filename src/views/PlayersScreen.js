@@ -3,6 +3,7 @@ import {
   SafeAreaView,
   View,
   FlatList,
+  Button
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
@@ -25,6 +26,10 @@ const PlayersScreen = ({ route, navigation }) => {
     <>
       <SafeAreaView>
         <TitleScreen title={route.name} />
+        <Button
+          title='Añadir Jugador'
+          onPress={() => navigation.navigate('AñadirJugador')}
+        />
         <View>
           <FlatList
             data={players}

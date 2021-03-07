@@ -6,6 +6,7 @@ import {
 import LeaguesScreen from '../../views/LeaguesScreen.js'
 import PlayerDetail from '../../views/PlayerDetail.js';
 import PlayersScreen from '../../views/PlayersScreen.js';
+import AddPlayer from '../Players/AddPlayer.js';
 const Stack = createStackNavigator();
 
 const PlayerStack = ({ route, navigation }) => {
@@ -20,6 +21,10 @@ const PlayerStack = ({ route, navigation }) => {
         <Stack.Screen 
           name='JugadorDetalle'
           component={PlayerDetail}
+        />
+        <Stack.Screen 
+          name='AñadirJugador'
+          component={AddPlayer}
         />
       </Stack.Navigator>
     </>
