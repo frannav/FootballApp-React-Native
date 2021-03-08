@@ -6,6 +6,7 @@ import {
   Button,
   StyleSheet,
   TextInput,
+  Text,
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
@@ -20,13 +21,14 @@ const styles = StyleSheet.create({
 })
 
 const PlayersScreen = ({ route, navigation }) => {
-  const [ players, setPlayers ] = useState(null)
+  const [ players, setPlayers ] = useState([])
   const [ searchTerm, setSearchTerm ] = useState(null)
 
   useEffect(function() {
     async function fetchData() {
       const response = await fetch('http://localhost:3000/players')
       const json = await response.json()
+      console.log(json)
       setPlayers(json)
     }
     fetchData()
@@ -40,7 +42,6 @@ const PlayersScreen = ({ route, navigation }) => {
 
   return (
     <>
-      {/* {console.log(players.filter((value) => {if (searchTerm == '') {return value} else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {return value}}))} */}
       <SafeAreaView>
         <Button
           title='Actualizar'
@@ -60,6 +61,15 @@ const PlayersScreen = ({ route, navigation }) => {
         />
         <View style={styles.container}>
           <FlatList
+            // data={players
+            //   .filter((value) => {
+            //     if (searchTerm == '') {
+            //       return value
+            //     } else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //       return value
+            //     }
+            //   })
+            // }
             data={players}
             renderItem={({item}) =>
             <PlayerItem
