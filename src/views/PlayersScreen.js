@@ -5,6 +5,7 @@ import {
   FlatList,
   Button,
   StyleSheet,
+  TextInput,
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
