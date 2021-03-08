@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   View,
+  ActivityIndicator,
   FlatList,
   Button,
   StyleSheet,
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
 const PlayersScreen = ({ route, navigation }) => {
   const [ players, setPlayers ] = useState(null)
   const [ searchTerm, setSearchTerm ] = useState('')
+  const [ loading, setIsLoading ] = useState(true)
 
   useEffect(function() {
     async function fetchData() {
@@ -30,6 +32,7 @@ const PlayersScreen = ({ route, navigation }) => {
       const json = await response.json()
       const array = json.map((i) => i)
       setPlayers(array)
+      setIsLoading(false)
     }
     fetchData()
   },[])
@@ -63,7 +66,7 @@ const PlayersScreen = ({ route, navigation }) => {
           }}
         />
         <View style={styles.container}>
-          
+          {loading ?  <ActivityIndicator /> : 
           <FlatList
             // 🔴 it Works if works if you do not restart the app
             data={players
@@ -85,6 +88,7 @@ const PlayersScreen = ({ route, navigation }) => {
             }
             keyExtractor={item => item["id"]}
           />
+          }
         </View>
       </SafeAreaView>
     </>
