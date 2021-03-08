@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useCallback } from 'react';
 import {
   View,
   Text,
@@ -82,10 +81,8 @@ const styles = StyleSheet.create({
 
 const TeamDetail = ({ route, navigation }) => {
 
-  const [refreshing, setRefreshing] = useState(false)
   const [players, setPlayers] = useState(null)
   const [isOk, setIsOk] = useState(false)
-  const [ error, setError ] = useState(null)
 
   useEffect(function() {
     async function fetchData() {
@@ -137,7 +134,6 @@ const TeamDetail = ({ route, navigation }) => {
             onPress={() => handleDelete()}
           />
           {isOk ? <Text>Equipo Borrado</Text> : null}
-          {error ? <Text>Error: {error.message}</Text> : null}
         </View>
         <View>
           <Text style={styles.subTitle}>
