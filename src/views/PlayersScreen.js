@@ -4,10 +4,19 @@ import {
   View,
   FlatList,
   Button,
+  StyleSheet
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
 import PlayerItem from '../components/PlayerItem';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 70,
+    paddingBottom: 90,
+    backgroundColor: '#03071e',
+  },
+})
 
 const PlayersScreen = ({ route, navigation }) => {
 
@@ -46,7 +55,7 @@ const PlayersScreen = ({ route, navigation }) => {
           title='Buscar Jugadores'
           onPress={() => navigation.navigate('BuscarJugador', {players})}
         />
-        <View>
+        <View style={styles.container}>
           <FlatList
             data={players}
             renderItem={({item}) =>

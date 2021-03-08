@@ -3,11 +3,20 @@ import {
   SafeAreaView,
   FlatList,
   View,
-  Button
+  Button,
+  StyleSheet
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
 import LeagueItem from '../components/LeagueItem';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 70,
+    paddingBottom: 90,
+    backgroundColor: '#03071e',
+  },
+})
 
 const LeaguesScreen = ({ route, navigation }) => {
 
@@ -36,7 +45,7 @@ const LeaguesScreen = ({ route, navigation }) => {
           onPress={() => refreshData()}
         />
           <TitleScreen title={route.name} />
-          <View>
+          <View style={styles.container}>
             <FlatList
               data={leagues}
               renderItem={({item}) =>

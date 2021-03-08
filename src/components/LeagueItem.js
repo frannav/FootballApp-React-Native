@@ -26,7 +26,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
     padding: 20,
-  }
+  },
+
+  text: {
+    color: '#ffffff',
+    fontSize: 24,
+  },
 
 })
 
@@ -45,7 +50,7 @@ const LeagueItem = ({ onPress, navigation, name, img }) => {
             {/* <Button title='Más detalles' onPress={() => navigation.navigate('Inicio')}/> */}
           </View>
           <View style={styles.textWrapper}>
-            <Text>
+            <Text style={styles.text}>
               {name["Nombre De La Liga"]}
             </Text>
           </View>

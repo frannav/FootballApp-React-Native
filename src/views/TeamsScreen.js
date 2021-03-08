@@ -3,11 +3,20 @@ import {
   SafeAreaView,
   View,
   FlatList,
-  Button
+  Button,
+  StyleSheet
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
 import TeamItem from '../components/TeamItem';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 70,
+    paddingBottom: 90,
+    backgroundColor: '#03071e',
+  },
+})
 
 const TeamsScreen = ({ route, navigation }) => {
 
@@ -42,7 +51,7 @@ const TeamsScreen = ({ route, navigation }) => {
           title='Añadir Equipo'
           onPress={() => navigation.navigate('AñadirEquipo')}
         />
-        <View>
+        <View style={styles.container}>
           <FlatList
             data={teams}
             renderItem={({item}) =>

@@ -93,7 +93,8 @@ const LeagueDetail = ({ route, navigation }) => {
               width: 100,
               height: 100,
               borderRadius: 50,
-              borderWidth: 1
+              borderWidth: 1,
+              backgroundColor: '#cbf3f0',
             }}
           />
           <Text style={styles.title}>

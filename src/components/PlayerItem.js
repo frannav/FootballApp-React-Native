@@ -25,7 +25,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
     padding: 20,
-  }
+  },
+
+  text: {
+    color: '#ffffff',
+    fontSize: 24,
+  },
 
 })
 
@@ -41,7 +46,7 @@ const PlayerItem = ({ onPress, name, img }) => {
             />
           </View>
           <View style={styles.textWrapper}>
-            <Text>
+            <Text style={styles.text}>
               {name["Nombre del Jugador"]}
             </Text>
           </View>
