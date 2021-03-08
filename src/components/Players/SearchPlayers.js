@@ -30,9 +30,10 @@ const SearchPlayers = ({ route, navigation }) => {
 
   useEffect(function() {
     async function fetchData() {
-      const response = await fetch('http://localhost:3000/players')
+      const response = await fetch('http://localhost:3000/')
       const json = await response.json()
       setPlayers(json)
+      {console.log(players)}
     }
     fetchData()
   },[])
