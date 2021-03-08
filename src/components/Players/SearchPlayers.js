@@ -65,10 +65,6 @@ const SearchPlayers = ({ route, navigation }) => {
           title='Añadir Jugador'
           onPress={() => navigation.navigate('AñadirJugador')}
         />
-        <Button
-          title='Buscar Jugadores'
-          onPress={() => navigation.navigate('Buscar Jugador', {players})}
-        />
         <TextInput
           onChange={(event) => {
             setSearchTerm(event.target.value)
