@@ -41,6 +41,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#dee2ff',
   },
 
+  buttomsContainer: {
+    paddingLeft: 80,
+    paddingRight: 80,
+    width: 500,
+    display : 'flex',
+    flexDirection : 'row',
+    justifyContent : 'space-between',
+    alignItems : 'center',
+    backgroundColor: '#ffffff',
+  },
+
   title: {
     display: 'flex',
     flex: 1,
@@ -116,6 +127,18 @@ const TeamDetail = ({ route, navigation }) => {
             Detalles del Equipo: {route.params["Nombre del equipo"]}
           </Text>
         </View>
+        <View style={styles.buttomsContainer}>
+          <Button
+            title='Editar Equipo'
+            onPress={() => navigation.navigate('EditarEquipo', route.params)}
+          />
+          <Button
+            title='Borrar Equipo'
+            onPress={() => handleDelete()}
+          />
+          {isOk ? <Text>Jugador Borrado</Text> : null}
+          {error ? <Text>Error: {error.message}</Text> : null}
+        </View>
         <View>
           <Text style={styles.subTitle}>
             Jugadores en el equipo
@@ -136,16 +159,6 @@ const TeamDetail = ({ route, navigation }) => {
             </View>
           }
         />
-        <Button
-          title='Editar jugador'
-          onPress={() => navigation.navigate('EditarEquipo', route.params)}
-        />
-        <Button
-          title='Borrar Equipo'
-          onPress={() => handleDelete()}
-        />
-        {isOk ? <Text>Equipo Borrado</Text> : null}
-        {error ? <Text>Error: {error.message}</Text> : null}
       </View>
     </>
   );

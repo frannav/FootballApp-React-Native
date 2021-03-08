@@ -130,12 +130,10 @@ const PlayerDetail = ({ route, navigation }) => {
           <Button
             title='Editar jugador'
             onPress={() => navigation.navigate('EditarJugador', route.params)}
-            style={styles.buttoms}
           />
           <Button
             title='Borrar Jugador'
             onPress={() => handleDelete()}
-            style={styles.buttoms}
           />
           {isOk ? <Text>Jugador Borrado</Text> : null}
           {error ? <Text>Error: {error.message}</Text> : null}
