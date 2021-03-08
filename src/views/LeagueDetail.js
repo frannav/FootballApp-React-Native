@@ -5,7 +5,6 @@ import {
   Image,
   FlatList,
   StyleSheet,
-  Button
 } from 'react-native';
 
 const styles = StyleSheet.create({
