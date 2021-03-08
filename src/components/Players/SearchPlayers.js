@@ -42,13 +42,13 @@ const SearchPlayers = ({ route, navigation }) => {
     const response = await fetch('http://localhost:3000/players')
     const json = await response.json()
     setPlayers(json)
-    // console.log(players.map(item => console.log('PELADO', item["Nombre del Jugador"])))
+    // console.log(players.map(item => console.log('PELADO', item.nombre_del_jugador)))
   }
 
   // data={players.filter((value) => {
             //   if (searchTerm == '') {
             //     return value
-            //   } else if (value["Nombre del Jugador"].toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+            //   } else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
             //     return value
             //   }
             // })}
@@ -85,7 +85,7 @@ const SearchPlayers = ({ route, navigation }) => {
                 key={item["id"]}
                 style={styles.text}
               >
-                {item["Nombre del Jugador"]} 
+                {item.nombre_del_jugador} 
               </Text>
             )
           } */}

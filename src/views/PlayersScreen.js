@@ -38,7 +38,7 @@ const PlayersScreen = ({ route, navigation }) => {
 
   return (
     <>
-      {/* {console.log(players.filter((value) => {if (searchTerm == '') {return value} else if (value["Nombre del Jugador"].toLowerCase().includes(searchTerm.toLocaleLowerCase())) {return value}}))} */}
+      {/* {console.log(players.filter((value) => {if (searchTerm == '') {return value} else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {return value}}))} */}
       <SafeAreaView>
         <Button
           title='Actualizar'
