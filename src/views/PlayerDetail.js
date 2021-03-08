@@ -5,7 +5,79 @@ import {
   Image,
   FlatList,
   Button,
+  StyleSheet,
 } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    display : 'flex',
+    flexDirection : 'column',
+    justifyContent : 'space-between',
+    alignItems : 'center',
+    backgroundColor:'#03071e'
+  },
+
+  titleContainer: {
+    paddingTop: 70,
+    paddingBottom: 70,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f48c06'
+  },
+
+  buttomsContainer: {
+    paddingLeft: 80,
+    paddingRight: 80,
+    width: 500,
+    display : 'flex',
+    flexDirection : 'row',
+    justifyContent : 'space-between',
+    alignItems : 'center',
+    backgroundColor: '#ffffff',
+  },
+
+  itemContainer: {
+    height: 170,
+    marginBottom: 18,
+    display: 'flex',
+    borderWidth: 1,
+    borderRadius: 25,
+    width: 390,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#dee2ff',
+  },
+
+  title: {
+    display: 'flex',
+    flex: 1,
+    flexWrap: 'wrap',
+    fontSize: 22,
+  },
+
+  titleItem: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    fontSize: 18,
+    paddingRight: 18,
+  },
+
+  subTitle: {
+    marginBottom: 20,
+    padding: 18,
+    textAlign: 'center',
+    fontSize: 18,
+    width: 1000,
+    borderWidth: 1,
+    color: '#dee2ff',
+    backgroundColor: '#03071e',
+
+  },
+
+})
 
 const PlayerDetail = ({ route, navigation }) => {
 
@@ -36,45 +108,61 @@ const PlayerDetail = ({ route, navigation }) => {
 
   return (
     <>
-      <View>
-        <Image
-          source={{ uri:  `${route.params["Avatar"]}`}}
-          style={{ width: 70, height: 70 }}
-        />
-        <Text>
-          Nombre del Jugador: {route.params["Nombre del Jugador"]}
-        </Text>
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Image
+            source={{ uri:  `${route.params["Avatar"]}`}}
+            style={{
+              marginRight: 18,
+              marginLeft: 18,
+              width: 100,
+              height: 100,
+              borderRadius: 50,
+              borderWidth: 1
+            }}
+          />
+          <Text style={styles.title}>
+            Nombre del Jugador: {route.params["Nombre del Jugador"]}
+          </Text>
+        </View>
+        <View style={styles.buttomsContainer}>
+          <Button
+            title='Editar jugador'
+            onPress={() => navigation.navigate('EditarJugador', route.params)}
+            style={styles.buttoms}
+          />
+          <Button
+            title='Borrar Jugador'
+            onPress={() => handleDelete()}
+            style={styles.buttoms}
+          />
+          {isOk ? <Text>Jugador Borrado</Text> : null}
+          {error ? <Text>Error: {error.message}</Text> : null}
+        </View>
+        <View>
+          <Text style={styles.subTitle}>
+            Equipo Actual
+          </Text>
+        </View>
+        <View style={styles.flatListContainer}>
+          <FlatList
+            data={team}
+            renderItem={
+              ({item}) =>
+              <View style={styles.itemContainer}>
+                <Image
+                  source={{ uri:  `${item["Logo del Equipo"]}`}}
+                  style={{ width: 70, height: 70 }}
+                />
+                <Text style={styles.titleItem}>
+                  Nombre del equipo: {item["Nombre del equipo"]}
+                </Text>
+              </View>
+            }
+          />
+        </View>
+        
       </View>
-      <View>
-        <Text>
-          Equipo Actual
-        </Text>
-      </View>
-      <FlatList
-        data={team}
-        renderItem={
-          ({item}) =>
-          <View>
-            <Image
-              source={{ uri:  `${item["Logo del Equipo"]}`}}
-              style={{ width: 70, height: 70 }}
-            />
-            <Text>
-              Nombre del equipo: {item["Nombre del equipo"]}
-            </Text>
-          </View>
-        }
-      />
-      <Button
-        title='Editar jugador'
-        onPress={() => navigation.navigate('EditarJugador', route.params)}
-      />
-      <Button
-        title='Borrar Jugador'
-        onPress={() => handleDelete()}
-      />
-      {isOk ? <Text>Jugador Borrado</Text> : null}
-      {error ? <Text>Error: {error.message}</Text> : null}
     </>
   );
 };
