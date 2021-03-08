@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Button,
   Text,
   Image,
   View,
@@ -47,7 +46,6 @@ const LeagueItem = ({ onPress, navigation, name, img }) => {
             />
           </View>
           <View style={styles.textWrapper}>
-            {/* <Button title='Más detalles' onPress={() => navigation.navigate('Inicio')}/> */}
           </View>
           <View style={styles.textWrapper}>
             <Text style={styles.text}>
