@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const TitleScreen = (props) => {
+const TitleComponent = (props) => {
   return (
     <>
       <SafeAreaView>
@@ -43,4 +43,4 @@ const TitleScreen = (props) => {
 
 
 
-export default TitleScreen;
+export default TitleComponent;

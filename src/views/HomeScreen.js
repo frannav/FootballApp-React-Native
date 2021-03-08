@@ -2,13 +2,13 @@ import React from 'react';
 import {
   SafeAreaView,
 } from 'react-native';
-import TitleScreen from '../components/TitleScreen';
+import TitleComponent from '../components/TitleComponent';
 
 const HomeScreen = ({ route, navigation }) => {
   return (
     <>
       <SafeAreaView>
-        <TitleScreen title={route.name}/>
+        <TitleComponent title={route.name}/>
       </SafeAreaView>
     </>
   );

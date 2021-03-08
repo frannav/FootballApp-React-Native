@@ -7,8 +7,8 @@ import {
   StyleSheet
 } from 'react-native';
 
-import TitleScreen from '../components/TitleScreen';
-import LeagueItem from '../components/LeagueItem';
+import TitleComponent from '../components/TitleComponent';
+import LeagueItem from '../components/Leagues/LeagueItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -44,7 +44,7 @@ const LeaguesScreen = ({ route, navigation }) => {
           title='Actualizar'
           onPress={() => refreshData()}
         />
-          <TitleScreen title={route.name} />
+          <TitleComponent title={route.name} />
           <View style={styles.container}>
             <FlatList
               data={leagues}

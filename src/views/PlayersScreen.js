@@ -9,8 +9,8 @@ import {
   Text,
 } from 'react-native';
 
-import TitleScreen from '../components/TitleScreen';
-import PlayerItem from '../components/PlayerItem';
+import TitleComponent from '../components/TitleComponent';
+import PlayerItem from '../components/Players/PlayerItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +46,7 @@ const PlayersScreen = ({ route, navigation }) => {
           title='Actualizar'
           onPress={() => refreshData()}
         />
-        <TitleScreen title={route.name} />
+        <TitleComponent title={route.name} />
         <Button
           title='Añadir Jugador'
           onPress={() => navigation.navigate('Añadir Jugador')}

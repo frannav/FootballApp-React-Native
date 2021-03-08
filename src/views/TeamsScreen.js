@@ -7,8 +7,8 @@ import {
   StyleSheet
 } from 'react-native';
 
-import TitleScreen from '../components/TitleScreen';
-import TeamItem from '../components/TeamItem';
+import TitleComponent from '../components/TitleComponent';
+import TeamItem from '../components/Teams/TeamItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +46,7 @@ const TeamsScreen = ({ route, navigation }) => {
           title='Actualizar'
           onPress={() => refreshData()}
         />
-        <TitleScreen title={route.name} />
+        <TitleComponent title={route.name} />
         <Button
           title='Añadir Equipo'
           onPress={() => navigation.navigate('Añadir Equipo')}
