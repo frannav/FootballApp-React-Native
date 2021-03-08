@@ -77,7 +77,7 @@ const AddTeam = () => {
     <>
       <View style={styles.container}>
         <Text style={styles.title}>
-          Añadir Jugador:
+          Añadir Equipo:
         </Text>
         <View>
           <View style={styles.inputContainer}>

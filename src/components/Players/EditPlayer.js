@@ -116,6 +116,7 @@ const EditPlayer = ({ route }) => {
         <Button
           title='Pulsa para confirmar'
           onPress={handleSubmit}
+          style={styles.buttom}
         />
         { isOk ? <Text>Enviado</Text> : null }
         { error ? <Text>Error: {error.message}</Text> : null }

@@ -49,7 +49,7 @@ const TeamsScreen = ({ route, navigation }) => {
         <TitleScreen title={route.name} />
         <Button
           title='Añadir Equipo'
-          onPress={() => navigation.navigate('AñadirEquipo')}
+          onPress={() => navigation.navigate('Añadir Equipo')}
         />
         <View style={styles.container}>
           <FlatList

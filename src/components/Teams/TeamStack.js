@@ -24,7 +24,7 @@ const TeamStack = ({ route, navigation }) => {
           component={TeamDetail}
         />
         <Stack.Screen 
-          name='AñadirEquipo'
+          name='Añadir Equipo'
           component={AddTeam}
         />
         <Stack.Screen 

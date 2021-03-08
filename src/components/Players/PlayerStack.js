@@ -26,7 +26,7 @@ const PlayerStack = ({ route, navigation }) => {
           component={PlayerDetail}
         />
         <Stack.Screen 
-          name='AñadirJugador'
+          name='Añadir Jugador'
           component={AddPlayer}
         />
         <Stack.Screen 

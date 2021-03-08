@@ -50,7 +50,7 @@ const PlayersScreen = ({ route, navigation }) => {
         <TitleScreen title={route.name} />
         <Button
           title='Añadir Jugador'
-          onPress={() => navigation.navigate('AñadirJugador')}
+          onPress={() => navigation.navigate('Añadir Jugador')}
         />
         {/* <TextInput
           onChange={(event) => setSearchTerm(event.target.value) }
