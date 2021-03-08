@@ -1,5 +1,12 @@
 # App Squaads
 
+  ## Setting up the DATABASE
+  Database Repository [link][url]
+
+[url]: https://github.com/frannav/json-db
+
+
+
   ## Requisitos
 - Complete
 - [x]  CRUD de jugadores.
@@ -10,7 +17,7 @@
   
 - Incomplete
 - [ ]  Buscar a un jugador por su nombre y/o equipo
-He intentado hacer el buscador con un TextInput desde la pantalla en la que se muestran todos los jugadores, obtengo el input del usuario y luego hago un filter a los datos que le paso en la Flatlist para que coincida con el input pero no funciona. El buscador se encuentra en PlayerScreen.js, pero luego se implementaría con facilidad en TeamScreen.js del mismo modo.
+El código del buscador está implementado pero comentado, ya que falla si haces un Reload de la App.
 
 
 
