@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   View,
+  ActivityIndicator,
   FlatList,
   Button,
   StyleSheet,
@@ -23,12 +24,14 @@ const TeamsScreen = ({ route, navigation }) => {
 
   const [teams, setTeams] = useState(null)
   const [ searchTerm, setSearchTerm ] = useState('')
+  const [ loading, setIsLoading ] = useState(true)
 
   useEffect(function() {
     async function fetchData() {
       const response = await fetch('http://localhost:3000/teams')
       const json = await response.json()
       setTeams(json)
+      setIsLoading(false)
     }
     fetchData()
   },[])
@@ -61,18 +64,17 @@ const TeamsScreen = ({ route, navigation }) => {
           }}
         />
         <View style={styles.container}>
+          { loading ? <ActivityIndicator /> : 
           <FlatList
-            // 🔴 it Works if works if you do not restart the app
-            // data={teams
-            //   .filter((value) => {
-            //     if (searchTerm == '') {
-            //       return value
-            //     } else if (value.nombre_del_equipo.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //       return value
-            //     }
-            //   })
-            // }
-            data={teams}
+            data={teams
+              .filter((value) => {
+                if (searchTerm == '') {
+                  return value
+                } else if (value.nombre_del_equipo.toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return value
+                }
+              })
+            }
             renderItem={({item}) =>
               <TeamItem
               name={item}
@@ -82,6 +84,7 @@ const TeamsScreen = ({ route, navigation }) => {
             }
             keyExtractor={item => item["id"]}
           />
+          }
         </View>
       </SafeAreaView>
     </>
