@@ -66,16 +66,16 @@ const PlayersScreen = ({ route, navigation }) => {
           
           <FlatList
             // 🔴 it Works if works if you do not restart the app
-            // data={players
-            //   .filter((value) => {
-            //     if (searchTerm == '') {
-            //       return value
-            //     } else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //       return value
-            //     }
-            //   })
-            // }
-            data={players}
+            data={players
+              .filter((value) => {
+                if (searchTerm == '') {
+                  return value
+                } else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return value
+                }
+              })
+            }
+            // data={players}
             renderItem={({item}) =>
             <PlayerItem
               name={item}
