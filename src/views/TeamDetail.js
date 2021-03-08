@@ -136,7 +136,7 @@ const TeamDetail = ({ route, navigation }) => {
             title='Borrar Equipo'
             onPress={() => handleDelete()}
           />
-          {isOk ? <Text>Jugador Borrado</Text> : null}
+          {isOk ? <Text>Equipo Borrado</Text> : null}
           {error ? <Text>Error: {error.message}</Text> : null}
         </View>
         <View>
