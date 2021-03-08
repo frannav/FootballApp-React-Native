@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
 
 const PlayersScreen = ({ route, navigation }) => {
   const [ players, setPlayers ] = useState(null)
+  const [ searchTerm, setSearchTerm ] = useState(null)
 
   useEffect(function() {
     async function fetchData() {
@@ -53,6 +54,9 @@ const PlayersScreen = ({ route, navigation }) => {
         <Button
           title='Buscar Jugadores'
           onPress={() => navigation.navigate('Buscar Jugador', {players})}
+        />
+        <TextInput
+          onChange={(event) => setSearchTerm(event.target.value) }
         />
         <View style={styles.container}>
           <FlatList
