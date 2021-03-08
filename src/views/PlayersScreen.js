@@ -60,7 +60,7 @@ const PlayersScreen = ({ route, navigation }) => {
             //   .filter((value) => {
             //     if (searchTerm == '') {
             //       return value
-            //     } else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     } else if (value["Nombre del Jugador"].toLowerCase().includes(searchTerm.toLowerCase())) {
             //       return value
             //     }
             //   })

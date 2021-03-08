@@ -123,7 +123,7 @@ const PlayerDetail = ({ route, navigation }) => {
             }}
           />
           <Text style={styles.title}>
-            Nombre del Jugador: {route.params.nombre_del_jugador}
+            Nombre del Jugador: {route.params["Nombre del Jugador"]}
           </Text>
         </View>
         <View style={styles.buttomsContainer}>

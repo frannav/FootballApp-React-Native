@@ -47,7 +47,7 @@ const PlayerItem = ({ onPress, name, img }) => {
           </View>
           <View style={styles.textWrapper}>
             <Text style={styles.text}>
-              {name.nombre_del_jugador}
+              {name["Nombre del Jugador"]}
             </Text>
           </View>
         </View>
