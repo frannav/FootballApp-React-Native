@@ -84,7 +84,6 @@ const PlayerDetail = ({ route, navigation }) => {
   
   const [team, setTeam] = useState(null)
   const [isOk, setIsOk] = useState(false)
-  const [ error, setError ] = useState(null)
   
   useEffect(function() {
     async function fetchData() {
@@ -136,7 +135,6 @@ const PlayerDetail = ({ route, navigation }) => {
             onPress={() => handleDelete()}
           />
           {isOk ? <Text>Jugador Borrado</Text> : null}
-          {error ? <Text>Error: {error.message}</Text> : null}
         </View>
         <View>
           <Text style={styles.subTitle}>
