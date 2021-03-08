@@ -21,14 +21,15 @@ const styles = StyleSheet.create({
 })
 
 const PlayersScreen = ({ route, navigation }) => {
-  const [ players, setPlayers ] = useState([])
-  // const [ searchTerm, setSearchTerm ] = useState(null)
+  const [ players, setPlayers ] = useState(null)
+  const [ searchTerm, setSearchTerm ] = useState('')
 
   useEffect(function() {
     async function fetchData() {
       const response = await fetch('http://localhost:3000/players')
       const json = await response.json()
-      setPlayers(json)
+      const array = json.map((i) => i)
+      setPlayers(array)
     }
     fetchData()
   },[])
@@ -36,7 +37,8 @@ const PlayersScreen = ({ route, navigation }) => {
   async function refreshData() {
     const response = await fetch('http://localhost:3000/players')
     const json = await response.json()
-    setPlayers(json)
+    const array = json.map(i => i)
+    setPlayers(array)
   }
 
   return (
@@ -51,16 +53,23 @@ const PlayersScreen = ({ route, navigation }) => {
           title='Añadir Jugador'
           onPress={() => navigation.navigate('Añadir Jugador')}
         />
-        {/* <TextInput
-          onChange={(event) => setSearchTerm(event.target.value) }
-        /> */}
+        <TextInput
+          onChangeText={(text) => setSearchTerm(text)}
+          placeholder='Escribe el nombre'
+          style={{
+            height: 40,
+            fontSize: 20,
+            textAlign: 'center'
+          }}
+        />
         <View style={styles.container}>
+          
           <FlatList
             // data={players
             //   .filter((value) => {
             //     if (searchTerm == '') {
             //       return value
-            //     } else if (value["Nombre del Jugador"].toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     } else if (value.nombre_del_jugador.toLowerCase().includes(searchTerm.toLowerCase())) {
             //       return value
             //     }
             //   })

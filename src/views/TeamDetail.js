@@ -150,7 +150,7 @@ const TeamDetail = ({ route, navigation }) => {
                 style={{ width: 70, height: 70 }}
               />
               <Text style={styles.titleItem}>
-                 Jugador:{item["Nombre del Jugador"]}
+                 Jugador:{item.nombre_del_jugador}
               </Text>
             </View>
           }
