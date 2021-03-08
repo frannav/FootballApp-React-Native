@@ -20,6 +20,8 @@
 ~~El código del buscador está implementado pero comentado, ya que falla si haces un Reload de la App.~~
 Fallaba porque renderizaba la FlatList antes de que se cargaran los datos de la llamada al backend, arreglado con un simple condicional
 
+AppFootball.gif![image](https://user-images.githubusercontent.com/55851213/110369590-84414900-8042-11eb-9434-8e879ff3e1c9.png)
+
 
 
 # Setting up the development environment
