@@ -21,8 +21,6 @@ const styles = StyleSheet.create({
 const TeamsScreen = ({ route, navigation }) => {
 
   const [teams, setTeams] = useState(null)
-  const [refreshing, setRefreshing] = useState(false);
-
 
   useEffect(function() {
     async function fetchData() {
