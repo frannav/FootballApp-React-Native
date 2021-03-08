@@ -28,7 +28,6 @@ const PlayersScreen = ({ route, navigation }) => {
     async function fetchData() {
       const response = await fetch('http://localhost:3000/players')
       const json = await response.json()
-      console.log(json)
       setPlayers(json)
     }
     fetchData()

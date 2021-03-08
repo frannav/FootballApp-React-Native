@@ -14,6 +14,13 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     backgroundColor: '#f48c06'
   },
+
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+
   screenTitle: {
     padding: 100,
     fontSize: 40

@@ -80,7 +80,7 @@ const App = () => {
             headerShown: false
           }}
         >
-          <Tab.Screen name='Inicio' component={HomeScreen} />
+          {/* <Tab.Screen name='Inicio' component={HomeScreen} /> */}
           <Tab.Screen name='Ligas' component={LeaguesStackScreens} />
           <Tab.Screen name='Equipos' component={TeamsStackScreens} />
           <Tab.Screen name='Jugadores' component={PlayersStackScreen} />

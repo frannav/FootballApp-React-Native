@@ -4,7 +4,8 @@ import {
   Text,
   Image,
   FlatList,
-  StyleSheet
+  StyleSheet,
+  Button
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -68,7 +69,6 @@ const styles = StyleSheet.create({
 
 const LeagueDetail = ({ route, navigation }) => {
 
-  console.log(route.params)
 
   const [teams, setTeams] = useState(null)
 
@@ -116,7 +116,7 @@ const LeagueDetail = ({ route, navigation }) => {
                 style={{ width: 70, height: 70 }}
               />
               <Text style={styles.titleItem}>
-                Nombre del equipo: {item["Nombre del equipo"]}
+                 Equipo:{item["Nombre del equipo"]}
               </Text>
             </View>
           }
