@@ -65,6 +65,7 @@ const PlayersScreen = ({ route, navigation }) => {
         <View style={styles.container}>
           
           <FlatList
+            // 🔴 it Works if works if you do not restart the app
             // data={players
             //   .filter((value) => {
             //     if (searchTerm == '') {

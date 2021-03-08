@@ -50,7 +50,7 @@ const EditTeam = ({ route }) => {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 
-      "Nombre del equipo": `${name}`,
+      "nombre_del_equipo": `${name}`,
       "Logo del Equipo": `${logo}`,
       "Liga": `${leagueId}`
     })

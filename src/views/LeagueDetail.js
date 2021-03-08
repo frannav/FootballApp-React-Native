@@ -115,7 +115,7 @@ const LeagueDetail = ({ route, navigation }) => {
                 style={{ width: 70, height: 70 }}
               />
               <Text style={styles.titleItem}>
-                 Equipo:{item["Nombre del equipo"]}
+                 Equipo:{item["nombre_del_equipo"]}
               </Text>
             </View>
           }

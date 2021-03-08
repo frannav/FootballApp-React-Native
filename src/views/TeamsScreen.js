@@ -4,7 +4,8 @@ import {
   View,
   FlatList,
   Button,
-  StyleSheet
+  StyleSheet,
+  TextInput,
 } from 'react-native';
 
 import TitleComponent from '../components/TitleComponent';
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
 const TeamsScreen = ({ route, navigation }) => {
 
   const [teams, setTeams] = useState(null)
+  const [ searchTerm, setSearchTerm ] = useState('')
 
   useEffect(function() {
     async function fetchData() {
@@ -49,8 +51,27 @@ const TeamsScreen = ({ route, navigation }) => {
           title='Añadir Equipo'
           onPress={() => navigation.navigate('Añadir Equipo')}
         />
+        <TextInput
+          onChangeText={(text) => setSearchTerm(text)}
+          placeholder='Escribe el nombre'
+          style={{
+            height: 40,
+            fontSize: 20,
+            textAlign: 'center'
+          }}
+        />
         <View style={styles.container}>
           <FlatList
+            // 🔴 it Works if works if you do not restart the app
+            // data={teams
+            //   .filter((value) => {
+            //     if (searchTerm == '') {
+            //       return value
+            //     } else if (value.nombre_del_equipo.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //       return value
+            //     }
+            //   })
+            // }
             data={teams}
             renderItem={({item}) =>
               <TeamItem

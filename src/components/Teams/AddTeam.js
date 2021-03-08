@@ -51,7 +51,7 @@ const AddTeam = () => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 
-      "Nombre del equipo": `${name}`,
+      "nombre_del_equipo": `${name}`,
       "leagueId": `${leagueId}`,
       "Logo del Equipo": `${logo}`
     })

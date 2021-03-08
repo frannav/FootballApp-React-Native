@@ -121,7 +121,7 @@ const TeamDetail = ({ route, navigation }) => {
             }}
           />
           <Text style={styles.title}>
-            Detalles del Equipo: {route.params["Nombre del equipo"]}
+            Detalles del Equipo: {route.params["nombre_del_equipo"]}
           </Text>
         </View>
         <View style={styles.buttomsContainer}>

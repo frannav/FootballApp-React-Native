@@ -152,7 +152,7 @@ const PlayerDetail = ({ route, navigation }) => {
                   style={{ width: 70, height: 70 }}
                 />
                 <Text style={styles.titleItem}>
-                  Nombre del equipo: {item["Nombre del equipo"]}
+                  Nombre del equipo: {item["nombre_del_equipo"]}
                 </Text>
               </View>
             }
