@@ -1,40 +1,33 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   SafeAreaView,
+  Text,
   View,
-  FlatList,
+  // FlatList,
   Button,
+  StyleSheet,
   TextInput
 } from 'react-native';
 
-import TitleScreen from '../TitleScreen'
-import PlayerItem from '../PlayerItem'
+import TitleScreen from '../TitleScreen';
+// import PlayerItem from '../PlayerItem';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 70,
+    paddingBottom: 90,
+    backgroundColor: '#03071e',
+  },
+
+  text: {
+    color: '#d8e2dc',
+  }
+})
 
 const SearchPlayers = ({ route, navigation }) => {
+  const [ players, setPlayers ] = useState(null)
+  const [ searchTerm, setSearchTerm] = useState('')
 
-  const [ name, onChangeText ] = useState(null)
-  const [players, setPlayers] = useState(null)
-  const [refreshing, setRefreshing] = useState(false);
-  const [playersFiltered, setPlayersFiltered] = useState([])
-
-  // console.log('ETO SI SEEECH', route.params["players"])
-
-  // handleSearch = () => {
-    // const playersFiltered = route.params["players"].filter((item) => {
-    //   return item["Nombre del Jugador"].toLowerCase().include(name.toLowerCase())
-    // })
-  
-  //   setPlayersFiltered(playersFiltered)
-  // }
-
-  // const filter = route.params["players"].filter((item) => {
-  //   playersFiltered.push(item["Nombre del Jugador"])
-  // })
-  // console.log(route.params["players"]["Nombre del jugador"])
-  const dataSet = route.params["players"] 
-  const newDataSet = dataSet.map(a => a["Nombre del Jugador"])
-
-  
   useEffect(function() {
     async function fetchData() {
       const response = await fetch('http://localhost:3000/players')
@@ -48,7 +41,16 @@ const SearchPlayers = ({ route, navigation }) => {
     const response = await fetch('http://localhost:3000/players')
     const json = await response.json()
     setPlayers(json)
+    // console.log(players.map(item => console.log('PELADO', item["Nombre del Jugador"])))
   }
+
+  // data={players.filter((value) => {
+            //   if (searchTerm == '') {
+            //     return value
+            //   } else if (value["Nombre del Jugador"].toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+            //     return value
+            //   }
+            // })}
 
   return (
     <>
@@ -58,23 +60,38 @@ const SearchPlayers = ({ route, navigation }) => {
           onPress={() => refreshData()}
         />
         <TitleScreen title={route.name} />
-        <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-          onChangeText={text => onChangeText(text)}
-          name={name}
+        <Button
+          title='Añadir Jugador'
+          onPress={() => navigation.navigate('AñadirJugador')}
         />
-        <View>
-          {/* <FlatList
-            data={players}
-            renderItem={({item}) =>
-            <PlayerItem
-              name={item}
-              img={item}
-              onPress={() => navigation.navigate('Detalles del Jugador', item)}
-            />
+        <Button
+          title='Buscar Jugadores'
+          onPress={() => navigation.navigate('Buscar Jugador', {players})}
+        />
+        <TextInput
+          onChange={(event) => {
+            setSearchTerm(event.target.value)
+          }}
+        />
+        <View style={styles.container}>
+          {/* {players
+            .filter((value) => {
+              if (searchTerm == '') {
+                return value
+              } else if (value.Nombre_del_Jugador.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                return value
+              }
             }
-            keyExtractor={item => item["id"]}
-          /> */}
+            )
+            .map(item => 
+              <Text
+                key={item["id"]}
+                style={styles.text}
+              >
+                {item["Nombre del Jugador"]} 
+              </Text>
+            )
+          } */}
         </View>
       </SafeAreaView>
     </>

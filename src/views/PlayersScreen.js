@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   View,
   FlatList,
   Button,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 
 import TitleScreen from '../components/TitleScreen';
@@ -19,10 +19,7 @@ const styles = StyleSheet.create({
 })
 
 const PlayersScreen = ({ route, navigation }) => {
-
-  const [players, setPlayers] = useState(null)
-  const [refreshing, setRefreshing] = useState(false);
-
+  const [ players, setPlayers ] = useState(null)
 
   useEffect(function() {
     async function fetchData() {
@@ -41,6 +38,7 @@ const PlayersScreen = ({ route, navigation }) => {
 
   return (
     <>
+      {/* {console.log(players.filter((value) => {if (searchTerm == '') {return value} else if (value["Nombre del Jugador"].toLowerCase().includes(searchTerm.toLocaleLowerCase())) {return value}}))} */}
       <SafeAreaView>
         <Button
           title='Actualizar'
@@ -53,7 +51,7 @@ const PlayersScreen = ({ route, navigation }) => {
         />
         <Button
           title='Buscar Jugadores'
-          onPress={() => navigation.navigate('BuscarJugador', {players})}
+          onPress={() => navigation.navigate('Buscar Jugador', {players})}
         />
         <View style={styles.container}>
           <FlatList

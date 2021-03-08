@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   screenTitle: {
     padding: 100,
-    fontSize: 42
+    fontSize: 40
   }
 })
 

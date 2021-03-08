@@ -34,7 +34,7 @@ const PlayerStack = ({ route, navigation }) => {
           component={EditPlayer}
         />
         <Stack.Screen 
-          name='BuscarJugador'
+          name='Buscar Jugador'
           component={SearchPlayers}
         />
       </Stack.Navigator>
