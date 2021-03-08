@@ -129,7 +129,7 @@ const PlayerDetail = ({ route, navigation }) => {
         <View style={styles.buttomsContainer}>
           <Button
             title='Editar jugador'
-            onPress={() => navigation.navigate('EditarJugador', route.params)}
+            onPress={() => navigation.navigate('Editar Jugador', route.params)}
           />
           <Button
             title='Borrar Jugador'

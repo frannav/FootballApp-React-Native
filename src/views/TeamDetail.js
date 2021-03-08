@@ -130,7 +130,7 @@ const TeamDetail = ({ route, navigation }) => {
         <View style={styles.buttomsContainer}>
           <Button
             title='Editar Equipo'
-            onPress={() => navigation.navigate('EditarEquipo', route.params)}
+            onPress={() => navigation.navigate('Editar Equipo', route.params)}
           />
           <Button
             title='Borrar Equipo'
